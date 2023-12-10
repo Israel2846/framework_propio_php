@@ -9,3 +9,9 @@ Route::get('/', function () {
 Route::get('/contact', function () {
     echo 'Hola desde la página de contacto';
 });
+
+Route::get('/about', function () {
+    echo 'Hola desde la página de acerca de';
+});
+
+Route::dispatch();
