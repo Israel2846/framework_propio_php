@@ -9,6 +9,8 @@
 
 <body>
     <h1>Hola desde la página home</h1>
+    <p>Título <?php echo $title ?></p>
+    <p>Descrición <?= $description ?></p>
 </body>
 
 </html>
