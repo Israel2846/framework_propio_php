@@ -10,6 +10,8 @@ class HomeController extends Controller
     {
         $contactModel = new Contact();
 
+        return $contactModel->query('SELECT * from contacts')->first();
+
         return $this->view('home', [
             'title' => 'Home',
             'description' => 'Esta es la página home'
