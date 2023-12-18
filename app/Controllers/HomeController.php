@@ -10,7 +10,7 @@ class HomeController extends Controller
     {
         $contactModel = new Contact();
 
-        return $contactModel->query('SELECT * from contacts')->first();
+        return $contactModel->where('id',1)->get();
 
         return $this->view('home', [
             'title' => 'Home',
