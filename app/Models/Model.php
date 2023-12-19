@@ -49,6 +49,7 @@ class Model
     public function all()
     {
         // SELECT * FROM tabla
+
         $sql = "SELECT * FROM {$this->table}";
 
         return $this->query($sql)->get();
@@ -57,6 +58,7 @@ class Model
     public function find($id)
     {
         // SELECT * FROM tabla WHERE id = *
+
         $sql = "SELECT * FROM {$this->table} WHERE id = {$id}";
 
         return $this->query($sql)->first();
@@ -65,6 +67,7 @@ class Model
     public function where($column, $operator, $value = null)
     {
         // SELECT * FROM tabla WHERE $column = $value
+
         if ($value == null) {
             $value = $operator;
             $operator = '=';
@@ -80,6 +83,7 @@ class Model
     public function create($data)
     {
         // INSERT INTO tabla (column1, column2, ...) values ('', '', ...)
+
         $columns = array_keys($data);
         $columns = implode(', ', $columns);
 
@@ -91,7 +95,26 @@ class Model
         $this->query($sql);
 
         $insert_id = $this->connection->insert_id;
-        
+
         return $this->find($insert_id);
+    }
+
+    public function update($id, $data)
+    {
+        // UPDATE tabla SET column1 = '', column2 = '', ... WHERE id = $id
+
+        $fields = [];
+
+        foreach ($data as $key => $value) {
+            $fields[] = "{$key} = '{$value}'";
+        }
+
+        $fields = implode(', ', $fields);
+
+        $sql = "UPDATE {$this->table} SET {$fields} WHERE id = {$id}";
+
+        $this->query($sql);
+
+        return $this->find($id);
     }
 }
