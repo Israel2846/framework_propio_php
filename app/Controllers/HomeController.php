@@ -10,9 +10,7 @@ class HomeController extends Controller
     {
         $contactModel = new Contact();
 
-        $contactModel->delete(4);
-
-        return "Eliminado";
+        return $contactModel->where("name", "Esaú' OR 'a' = 'a")->get();
 
         return $this->view('home', [
             'title' => 'Home',
