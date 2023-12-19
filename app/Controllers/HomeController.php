@@ -10,7 +10,11 @@ class HomeController extends Controller
     {
         $contactModel = new Contact();
 
-        return $contactModel->where('id',1)->get();
+        return $contactModel->create([
+            'name' => 'Gómez',
+            'email' => 'gomez@gmail.com',
+            'phone' => '5589898989'
+        ]);
 
         return $this->view('home', [
             'title' => 'Home',

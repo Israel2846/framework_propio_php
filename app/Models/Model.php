@@ -76,4 +76,22 @@ class Model
 
         return $this;
     }
+
+    public function create($data)
+    {
+        // INSERT INTO tabla (column1, column2, ...) values ('', '', ...)
+        $columns = array_keys($data);
+        $columns = implode(', ', $columns);
+
+        $values = array_values($data);
+        $values = "'" . implode("', '", $values) . "'";
+
+        $sql = "INSERT INTO {$this->table} ({$columns}) VALUES ({$values})";
+
+        $this->query($sql);
+
+        $insert_id = $this->connection->insert_id;
+        
+        return $this->find($insert_id);
+    }
 }
