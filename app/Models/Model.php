@@ -117,4 +117,13 @@ class Model
 
         return $this->find($id);
     }
+
+    public function delete($id)
+    {
+        // DELETE FROM tabla WHERE id = $id
+
+        $sql = "DELETE FROM {$this->table} WHERE id = {$id}";
+
+        $this->query($sql);
+    }
 }
