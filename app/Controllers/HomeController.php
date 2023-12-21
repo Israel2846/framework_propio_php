@@ -8,12 +8,6 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $contactModel = new Contact();
-
-        $contactModel->delete(5);
-
-        return 'Eliminado';
-
         return $this->view('home', [
             'title' => 'Home',
             'description' => 'Esta es la página home'

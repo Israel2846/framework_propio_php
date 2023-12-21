@@ -11,9 +11,7 @@ class ContactController extends Controller
     {
         $model = new Contact;
 
-        $contacts = $model->all();
-
-        // compact('contacts', 'prueba') => {'contacts' => $contacts, 'prueba' => $prueba}
+        $contacts = $model->paginate(3);
 
         return $this->view('contacts.index', compact('contacts'));
     }
