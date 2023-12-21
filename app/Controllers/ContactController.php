@@ -35,17 +35,30 @@ class ContactController extends Controller
 
     public function show($id)
     {
-        return "Se mostrará el contacto $id";
+        $model = new Contact;
+
+        $contact = $model->find($id);
+
+        return $this->view('contacts.show', compact('contact'));
     }
 
     public function edit($id)
     {
-        return "Aquí se editará el contacto $id";
+        $model = new Contact;
+
+        $contact = $model->find($id);
+
+        return $this->view('contacts.edit', compact('contact'));
     }
 
     public function update($id)
     {
-        return "Aquí se procesará la edición del contacto $id";
+        $data = $_POST;
+
+        $model = new Contact;
+        $model->update($id, $data);
+
+        $this->redirect("/contacts/{$id}");
     }
 
     public function destroy($id)

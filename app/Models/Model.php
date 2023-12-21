@@ -116,7 +116,7 @@ class Model
 
         $fields = [];
 
-        foreach ($data as $key) {
+        foreach ($data as $key => $value) {
             $fields[] = "{$key} = ?";
         }
 
