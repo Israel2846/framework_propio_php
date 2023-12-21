@@ -22,4 +22,9 @@ class Controller
             return 'No existe';
         }
     }
+
+    public function redirect($route)
+    {
+        header("Location: {$route}");
+    }
 }

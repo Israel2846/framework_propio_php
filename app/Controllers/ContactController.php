@@ -20,12 +20,17 @@ class ContactController extends Controller
 
     public function create()
     {
-        return "Aquí se crearán";
+        return $this->view('contacts.create');
     }
 
     public function store()
     {
-        return "Aquí se procesará el formulario de creación";
+        $data = $_POST;
+
+        $model = new Contact;
+        $model->create($data);
+
+        return $this->redirect('/contacts');
     }
 
     public function show($id)
