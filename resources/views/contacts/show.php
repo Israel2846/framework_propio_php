@@ -18,6 +18,12 @@
     <p>Email <?= $contact['email'] ?></p>
     <p>Teléfono <?= $contact['phone'] ?></p>
 
+    <form action="/contacts/<?= $contact['id'] ?>/delete" method="post">
+        <button>
+            Eliminar
+        </button>
+    </form>
+
 </body>
 
 </html>
