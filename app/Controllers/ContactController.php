@@ -3,12 +3,19 @@
 namespace App\Controllers;
 
 use App\Controllers\Controller;
+use App\Models\Contact;
 
 class ContactController extends Controller
 {
     public function index()
     {
-        return "Aquí se mostrará el listado de contactos";
+        $model = new Contact;
+
+        $contacts = $model->all();
+
+        // compact('contacts', 'prueba') => {'contacts' => $contacts, 'prueba' => $prueba}
+
+        return $this->view('contacts.index', compact('contacts'));
     }
 
     public function create()
