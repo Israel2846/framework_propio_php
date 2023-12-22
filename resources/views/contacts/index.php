@@ -27,7 +27,7 @@
 
         <ul class="list-disc list-inside">
 
-            <?php foreach ($contacts as $contact) : ?>
+            <?php foreach ($contacts['data'] as $contact) : ?>
 
                 <li>
                     <a href="/contacts/<?= $contact['id'] ?>">
@@ -39,13 +39,13 @@
 
         </ul>
 
-        <!-- <?php
+        <?php
 
-                $paginate = 'contacts';
+        $paginate = 'contacts';
 
-                include_once '../resources/views/assets/pagination.php'
+        include_once '../resources/views/assets/pagination.php'
 
-                ?> -->
+        ?>
 
     </div>
 

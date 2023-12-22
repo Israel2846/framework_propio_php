@@ -12,9 +12,9 @@ class ContactController extends Controller
         $model = new Contact;
 
         if (isset($_GET['search'])) {
-            $contacts = $model->where('name', 'LIKE', '%' . $_GET['search'] . '%')->get();
+            $contacts = $model->where('name', 'LIKE', '%' . $_GET['search'] . '%')->paginate(1);
         } else {
-            $contacts = $model->all();
+            $contacts = $model->paginate(3);
         }
 
         return $this->view('contacts.index', compact('contacts'));
